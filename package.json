@@ -1,0 +1,62 @@
+{
+  "name": "pokecompeditor",
+  "displayName": "PokeCompEditor",
+  "description": "Visual editors for pokeemerald-expansion projects. Built by AI with human guidance.",
+  "version": "0.1.0",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "workspaceContains:**/src/data/trainers.party"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "pokeCompEditor",
+          "title": "PokeCompEditor",
+          "icon": "media/pokeball.svg"
+        }
+      ]
+    },
+    "views": {
+      "pokeCompEditor": [
+        {
+          "id": "pokeCompEditorView",
+          "name": "Editors"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "pokeCompEditor.openTrainerEditor",
+        "title": "Open Trainer Editor",
+        "icon": "$(person)",
+        "category": "PokeCompEditor"
+      },
+      {
+        "command": "pokeCompEditor.openTrainerEditorFRLG",
+        "title": "Open Trainer Editor (FRLG)",
+        "icon": "$(person)",
+        "category": "PokeCompEditor"
+      }
+    ],
+    "menus": {
+      "view/item/context": [
+        {
+          "command": "pokeCompEditor.openTrainerEditor",
+          "when": "viewItem == trainerEditor"
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.9.1"
+  }
+}
