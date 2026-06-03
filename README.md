@@ -2,7 +2,7 @@
 
 A VS Code extension that provides visual editors for [pokeemerald-expansion](https://github.com/rh-hideout/pokeemerald-expansion) projects. It was built by AI with human guidance, review, and testing.
 
-Working knowledge of the game and its data formats is still expected — always verify your changes are correct before committing. Since this tool is AI-generated, never assume the output is always accurate. I will be fixing issues as I discover them through my own personal use. If something isn't being edited correctly, please [open an issue](../../issues).
+Working knowledge of the game and its data formats is still expected — always verify your changes are correct before committing. Since this tool is AI-generated, never assume the output is always accurate. I will be fixing issues as I discover them through my own personal use. If something isn't being edited correctly, please [open an issue](https://github.com/SirSnorealot/PokeCompEditor/issues).
 
 ---
 
@@ -17,7 +17,7 @@ Working knowledge of the game and its data formats is still expected — always 
 
 ## Installation
 
-1. Download `pokecompeditor.vsix` from the [Releases](../../releases) page, or use the one included in this repository.
+1. Download `pokecompeditor.vsix` from the [Releases](https://github.com/SirSnorealot/PokeCompEditor/releases) page, or use the one included in this repository.
 2. In VS Code press `Ctrl+Shift+P` → **Extensions: Install from VSIX…** and select the downloaded file.
 3. Reload VS Code when prompted.
 
