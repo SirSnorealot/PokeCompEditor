@@ -4,6 +4,7 @@ const vscode = require('vscode');
 const path   = require('path');
 const { TrainerEditorPanel } = require('./lib/trainerEditorPanel');
 const { ItemEditorPanel } = require('./lib/itemEditorPanel');
+const { AttackEditorPanel } = require('./lib/attackEditorPanel');
 
 /**
  * Find the pokeemerald-expansion project root by locating trainers.party.
@@ -46,6 +47,7 @@ class PokeCompEditorViewProvider {
             new EditorTreeItem('Trainer Editor',       'pokeCompEditor.openTrainerEditor',     'trainers.party'),
             new EditorTreeItem('Trainer Editor (FRLG)', 'pokeCompEditor.openTrainerEditorFRLG', 'trainers_frlg.party'),
             new EditorTreeItem('Item Editor',           'pokeCompEditor.openItemEditor',        'items.h'),
+            new EditorTreeItem('Attack Editor',         'pokeCompEditor.openAttackEditor',      'moves_info.h'),
         ];
     }
 }
@@ -104,6 +106,21 @@ async function activate(context) {
                 return;
             }
             ItemEditorPanel.createOrShow(context, root);
+        })
+    );
+
+    // Command: open attack editor
+    context.subscriptions.push(
+        vscode.commands.registerCommand('pokeCompEditor.openAttackEditor', async () => {
+            const root = await findProjectRoot();
+            if (!root) {
+                vscode.window.showErrorMessage(
+                    'PokeCompEditor: Could not find moves_info.h. ' +
+                    'Make sure you have a pokeemerald-expansion project open.'
+                );
+                return;
+            }
+            AttackEditorPanel.createOrShow(context, root);
         })
     );
 }

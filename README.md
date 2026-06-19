@@ -13,6 +13,7 @@ Working knowledge of the game and its data formats is still expected — always 
 | **Trainer Editor** | Edit trainers and their party Pokémon via a GUI. Writes to `src/data/trainers.party`. |
 | **Trainer Editor (FRLG)** | Same as above for the FRLG variant. Writes to `src/data/trainers_frlg.party`. |
 | **Item Editor** | Edit items via a GUI. Writes to `src/data/items.h`. |
+| **Attack Editor** | Edit attacks and their battle properties via a GUI. Writes to `src/data/moves_info.h`. |
 
 ---
 
@@ -38,6 +39,5 @@ Working knowledge of the game and its data formats is still expected — always 
 
 ## Planned Editors
 
-- Move Editor
 - Species/Pokémon Editor
 - Let me know of any ideas and they will be considered.

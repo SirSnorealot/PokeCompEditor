@@ -14,7 +14,8 @@
   "activationEvents": [
     "onStartupFinished",
     "workspaceContains:**/src/data/trainers.party",
-    "workspaceContains:**/src/data/items.h"
+    "workspaceContains:**/src/data/items.h",
+    "workspaceContains:**/src/data/moves_info.h"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -53,6 +54,12 @@
         "title": "Open Item Editor",
         "icon": "$(package)",
         "category": "PokeCompEditor"
+      },
+      {
+        "command": "pokeCompEditor.openAttackEditor",
+        "title": "Open Attack Editor",
+        "icon": "$(symbol-method)",
+        "category": "PokeCompEditor"
       }
     ],
     "menus": {
@@ -64,6 +71,10 @@
         {
           "command": "pokeCompEditor.openItemEditor",
           "when": "viewItem == itemEditor"
+        },
+        {
+          "command": "pokeCompEditor.openAttackEditor",
+          "when": "viewItem == attackEditor"
         }
       ]
     }
