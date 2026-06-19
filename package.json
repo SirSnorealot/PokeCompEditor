@@ -2,6 +2,7 @@
   "name": "pokecompeditor",
   "displayName": "PokeCompEditor",
   "description": "Visual editors for pokeemerald-expansion projects. Built by AI with human guidance.",
+  "icon": "media/pokeball.png",
   "version": "0.1.0",
   "publisher": "local",
   "engines": {
