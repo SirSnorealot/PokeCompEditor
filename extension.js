@@ -3,13 +3,17 @@
 const vscode = require('vscode');
 const path   = require('path');
 const { TrainerEditorPanel } = require('./lib/trainerEditorPanel');
+const { ItemEditorPanel } = require('./lib/itemEditorPanel');
 
 /**
  * Find the pokeemerald-expansion project root by locating trainers.party.
  * @returns {Promise<vscode.Uri|null>}
  */
 async function findProjectRoot() {
-    const files = await vscode.workspace.findFiles('**/src/data/trainers.party', null, 1);
+    let files = await vscode.workspace.findFiles('**/src/data/trainers.party', null, 1);
+    if (files.length === 0) {
+        files = await vscode.workspace.findFiles('**/src/data/items.h', null, 1);
+    }
     if (files.length === 0) return null;
     // trainers.party is at <root>/src/data/trainers.party — go up 3 levels
     return vscode.Uri.file(
@@ -41,6 +45,7 @@ class PokeCompEditorViewProvider {
         return [
             new EditorTreeItem('Trainer Editor',       'pokeCompEditor.openTrainerEditor',     'trainers.party'),
             new EditorTreeItem('Trainer Editor (FRLG)', 'pokeCompEditor.openTrainerEditorFRLG', 'trainers_frlg.party'),
+            new EditorTreeItem('Item Editor',           'pokeCompEditor.openItemEditor',        'items.h'),
         ];
     }
 }
@@ -84,6 +89,21 @@ async function activate(context) {
             }
             const partyFile = path.join(root.fsPath, 'src', 'data', 'trainers_frlg.party');
             TrainerEditorPanel.createOrShow(context, root, partyFile);
+        })
+    );
+
+    // Command: open item editor
+    context.subscriptions.push(
+        vscode.commands.registerCommand('pokeCompEditor.openItemEditor', async () => {
+            const root = await findProjectRoot();
+            if (!root) {
+                vscode.window.showErrorMessage(
+                    'PokeCompEditor: Could not find items.h. ' +
+                    'Make sure you have a pokeemerald-expansion project open.'
+                );
+                return;
+            }
+            ItemEditorPanel.createOrShow(context, root);
         })
     );
 }

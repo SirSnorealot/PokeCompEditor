@@ -12,7 +12,8 @@
   ],
   "activationEvents": [
     "onStartupFinished",
-    "workspaceContains:**/src/data/trainers.party"
+    "workspaceContains:**/src/data/trainers.party",
+    "workspaceContains:**/src/data/items.h"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -45,6 +46,12 @@
         "title": "Open Trainer Editor (FRLG)",
         "icon": "$(person)",
         "category": "PokeCompEditor"
+      },
+      {
+        "command": "pokeCompEditor.openItemEditor",
+        "title": "Open Item Editor",
+        "icon": "$(package)",
+        "category": "PokeCompEditor"
       }
     ],
     "menus": {
@@ -52,6 +59,10 @@
         {
           "command": "pokeCompEditor.openTrainerEditor",
           "when": "viewItem == trainerEditor"
+        },
+        {
+          "command": "pokeCompEditor.openItemEditor",
+          "when": "viewItem == itemEditor"
         }
       ]
     }
