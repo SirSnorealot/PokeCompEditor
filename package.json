@@ -15,7 +15,8 @@
     "onStartupFinished",
     "workspaceContains:**/src/data/trainers.party",
     "workspaceContains:**/src/data/items.h",
-    "workspaceContains:**/src/data/moves_info.h"
+    "workspaceContains:**/src/data/moves_info.h",
+    "workspaceContains:**/src/data/pokemon/species_info.h"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -60,6 +61,12 @@
         "title": "Open Attack Editor",
         "icon": "$(symbol-method)",
         "category": "PokeCompEditor"
+      },
+      {
+        "command": "pokeCompEditor.openPokemonEditor",
+        "title": "Open Pokemon Editor",
+        "icon": "$(symbol-structure)",
+        "category": "PokeCompEditor"
       }
     ],
     "menus": {
@@ -75,6 +82,10 @@
         {
           "command": "pokeCompEditor.openAttackEditor",
           "when": "viewItem == attackEditor"
+        },
+        {
+          "command": "pokeCompEditor.openPokemonEditor",
+          "when": "viewItem == pokemonEditor"
         }
       ]
     }

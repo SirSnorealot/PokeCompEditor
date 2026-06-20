@@ -5,9 +5,10 @@ const path   = require('path');
 const { TrainerEditorPanel } = require('./lib/trainerEditorPanel');
 const { ItemEditorPanel } = require('./lib/itemEditorPanel');
 const { AttackEditorPanel } = require('./lib/attackEditorPanel');
+const { PokemonEditorPanel } = require('./lib/pokemonEditorPanel');
 
 /**
- * Find the pokeemerald-expansion project root by locating trainers.party.
+ * Find the pokeemerald-expansion project root from one of its editor data files.
  * @returns {Promise<vscode.Uri|null>}
  */
 async function findProjectRoot() {
@@ -15,8 +16,12 @@ async function findProjectRoot() {
     if (files.length === 0) {
         files = await vscode.workspace.findFiles('**/src/data/items.h', null, 1);
     }
-    if (files.length === 0) return null;
-    // trainers.party is at <root>/src/data/trainers.party — go up 3 levels
+    if (files.length === 0) {
+        files = await vscode.workspace.findFiles('**/src/data/pokemon/species_info.h', null, 1);
+        if (files.length === 0) return null;
+        return vscode.Uri.file(path.resolve(files[0].fsPath, '..', '..', '..', '..'));
+    }
+    // The standard data files are at <root>/src/data/<file>.
     return vscode.Uri.file(
         path.resolve(files[0].fsPath, '..', '..', '..')
     );
@@ -48,6 +53,7 @@ class PokeCompEditorViewProvider {
             new EditorTreeItem('Trainer Editor (FRLG)', 'pokeCompEditor.openTrainerEditorFRLG', 'trainers_frlg.party'),
             new EditorTreeItem('Item Editor',           'pokeCompEditor.openItemEditor',        'items.h'),
             new EditorTreeItem('Attack Editor',         'pokeCompEditor.openAttackEditor',      'moves_info.h'),
+            new EditorTreeItem('Pokemon Editor',        'pokeCompEditor.openPokemonEditor',     'species_info'),
         ];
     }
 }
@@ -121,6 +127,21 @@ async function activate(context) {
                 return;
             }
             AttackEditorPanel.createOrShow(context, root);
+        })
+    );
+
+    // Command: open Pokemon editor
+    context.subscriptions.push(
+        vscode.commands.registerCommand('pokeCompEditor.openPokemonEditor', async () => {
+            const root = await findProjectRoot();
+            if (!root) {
+                vscode.window.showErrorMessage(
+                    'PokeCompEditor: Could not find species_info.h. ' +
+                    'Make sure you have a pokeemerald-expansion project open.'
+                );
+                return;
+            }
+            PokemonEditorPanel.createOrShow(context, root);
         })
     );
 }
