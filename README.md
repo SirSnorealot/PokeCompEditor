@@ -43,12 +43,12 @@ Working knowledge of the game and its data formats is still expected — always 
 
 > **Note:** The GUI appearance is subject to change.
 
-![Trainer Editor](screenshots/TrainerEditor.png)
-![Item Editor](screenshots/ItemEditor.png)
-![Attack Editor](screenshots/AttackEditor.png)
-![Pokemon Editor 1](screenshots/PokemonEditor1.png)
-![Pokemon Editor 2](screenshots/PokemonEditor2.png)
-![Music Editor](screenshots/MusicEditor.png)
+![Trainer Editor](https://raw.githubusercontent.com/SirSnorealot/PokeCompEditor/main/screenshots/TrainerEditor.png)
+![Item Editor](https://raw.githubusercontent.com/SirSnorealot/PokeCompEditor/main/screenshots/ItemEditor.png)
+![Attack Editor](https://raw.githubusercontent.com/SirSnorealot/PokeCompEditor/main/screenshots/AttackEditor.png)
+![Pokemon Editor 1](https://raw.githubusercontent.com/SirSnorealot/PokeCompEditor/main/screenshots/PokemonEditor1.png)
+![Pokemon Editor 2](https://raw.githubusercontent.com/SirSnorealot/PokeCompEditor/main/screenshots/PokemonEditor2.png)
+![Music Editor](https://raw.githubusercontent.com/SirSnorealot/PokeCompEditor/main/screenshots/MusicEditor.png)
 
 ---
 
