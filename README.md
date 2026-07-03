@@ -39,6 +39,19 @@ Working knowledge of the game and its data formats is still expected — always 
 
 ---
 
+## Screenshots
+
+> **Note:** The GUI appearance is subject to change.
+
+![Trainer Editor](screenshots/TrainerEditor.png)
+![Item Editor](screenshots/ItemEditor.png)
+![Attack Editor](screenshots/AttackEditor.png)
+![Pokemon Editor 1](screenshots/PokemonEditor1.png)
+![Pokemon Editor 2](screenshots/PokemonEditor2.png)
+![Music Editor](screenshots/MusicEditor.png)
+
+---
+
 ## Planned Editors
 
 - Let me know of any ideas and they will be considered.
