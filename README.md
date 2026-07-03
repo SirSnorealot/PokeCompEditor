@@ -15,6 +15,7 @@ Working knowledge of the game and its data formats is still expected — always 
 | **Item Editor** | Edit items via a GUI. Writes to `src/data/items.h`. |
 | **Attack Editor** | Edit attacks and their battle properties via a GUI. Writes to `src/data/moves_info.h`. |
 | **Pokemon Editor** | Not done! Not tested! |
+| **Music Editor** | Browse and play every `MUS_` song (real MIDI notes rendered with the song's actual GBA voice group instruments/samples), edit `gSongTable` entries, `midi.cfg` compiler flags (voice group, reverb, volume, priority...), add new songs, and edit/create voice groups. Not tested! |
 
 ---
 
