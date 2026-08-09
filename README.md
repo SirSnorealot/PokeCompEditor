@@ -15,7 +15,7 @@ Working knowledge of the game and its data formats is still expected — always 
 | **Item Editor** | Edit items via a GUI. Writes to `src/data/items.h`. |
 | **Attack Editor** | Edit attacks and their battle properties via a GUI. Writes to `src/data/moves_info.h`. |
 | **Pokemon Editor** | Not done! Not tested! |
-| **Music Editor** | Browse and play every `MUS_` song (real MIDI notes rendered with the song's actual GBA voice group instruments/samples), edit `gSongTable` entries, `midi.cfg` compiler flags (voice group, reverb, volume, priority...), add new songs, and edit/create voice groups. Not tested! |
+| **Music Editor** | Browse, play, and edit songs. Not tested! |
 
 ---
 
@@ -49,6 +49,12 @@ Working knowledge of the game and its data formats is still expected — always 
 ![Pokemon Editor 1](https://raw.githubusercontent.com/SirSnorealot/PokeCompEditor/main/screenshots/PokemonEditor1.png)
 ![Pokemon Editor 2](https://raw.githubusercontent.com/SirSnorealot/PokeCompEditor/main/screenshots/PokemonEditor2.png)
 ![Music Editor](https://raw.githubusercontent.com/SirSnorealot/PokeCompEditor/main/screenshots/MusicEditor.png)
+
+---
+
+## Credits
+
+- **porydaw** - Inspiration for the Music Editor. Check out [porydaw](https://github.com/porydawn/porydaw) for a more feature-rich music editing experience.
 
 ---
 
