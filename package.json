@@ -16,8 +16,7 @@
     "workspaceContains:**/src/data/trainers.party",
     "workspaceContains:**/src/data/items.h",
     "workspaceContains:**/src/data/moves_info.h",
-    "workspaceContains:**/src/data/pokemon/species_info.h",
-    "workspaceContains:**/sound/song_table.inc"
+    "workspaceContains:**/src/data/pokemon/species_info.h"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -68,12 +67,6 @@
         "title": "Open Pokemon Editor",
         "icon": "$(symbol-structure)",
         "category": "PokeCompEditor"
-      },
-      {
-        "command": "pokeCompEditor.openMusicEditor",
-        "title": "Open Music Editor",
-        "icon": "$(unmute)",
-        "category": "PokeCompEditor"
       }
     ],
     "menus": {
@@ -93,10 +86,6 @@
         {
           "command": "pokeCompEditor.openPokemonEditor",
           "when": "viewItem == pokemonEditor"
-        },
-        {
-          "command": "pokeCompEditor.openMusicEditor",
-          "when": "viewItem == musicEditor"
         }
       ]
     }

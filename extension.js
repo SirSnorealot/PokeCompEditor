@@ -6,7 +6,6 @@ const { TrainerEditorPanel } = require('./lib/trainerEditorPanel');
 const { ItemEditorPanel } = require('./lib/itemEditorPanel');
 const { AttackEditorPanel } = require('./lib/attackEditorPanel');
 const { PokemonEditorPanel } = require('./lib/pokemonEditorPanel');
-const { MusicEditorPanel } = require('./lib/musicEditorPanel');
 
 /**
  * Find the pokeemerald-expansion project root from one of its editor data files.
@@ -55,7 +54,6 @@ class PokeCompEditorViewProvider {
             new EditorTreeItem('Item Editor',           'pokeCompEditor.openItemEditor',        'items.h'),
             new EditorTreeItem('Attack Editor',         'pokeCompEditor.openAttackEditor',      'moves_info.h'),
             new EditorTreeItem('Pokemon Editor',        'pokeCompEditor.openPokemonEditor',     'species_info'),
-            new EditorTreeItem('Music Editor',          'pokeCompEditor.openMusicEditor',       'song_table.inc'),
         ];
     }
 }
@@ -144,21 +142,6 @@ async function activate(context) {
                 return;
             }
             PokemonEditorPanel.createOrShow(context, root);
-        })
-    );
-
-    // Command: open music editor
-    context.subscriptions.push(
-        vscode.commands.registerCommand('pokeCompEditor.openMusicEditor', async () => {
-            const root = await findProjectRoot();
-            if (!root) {
-                vscode.window.showErrorMessage(
-                    'PokeCompEditor: Could not find song_table.inc. ' +
-                    'Make sure you have a pokeemerald-expansion project open.'
-                );
-                return;
-            }
-            MusicEditorPanel.createOrShow(context, root);
         })
     );
 }
